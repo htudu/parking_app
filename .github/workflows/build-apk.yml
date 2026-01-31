@@ -28,13 +28,19 @@ jobs:
           cache: true
       
       - name: Install dependencies
-        run: flutter pub get --directory mobile_app/flutter_starter
+        run: |
+          cd mobile_app/flutter_starter
+          flutter pub get
       
       - name: Build APK (Debug)
-        run: flutter build apk --debug --project-root mobile_app/flutter_starter
+        run: |
+          cd mobile_app/flutter_starter
+          flutter build apk --debug
       
       - name: Build APK (Release)
-        run: flutter build apk --release --project-root mobile_app/flutter_starter
+        run: |
+          cd mobile_app/flutter_starter
+          flutter build apk --release
       
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
