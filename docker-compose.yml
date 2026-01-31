@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: parking-app
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=development
+      - SECRET_KEY=dev-secret-key-change-in-production
+      - DATABASE_URL=sqlite:///parking.db
+      - SESSION_COOKIE_SECURE=False
+    volumes:
+      - .:/app
+      - /app/__pycache__
+      - parking_db:/app/instance
+    command: flask run --host=0.0.0.0
+    restart: unless-stopped
+
+volumes:
+  parking_db:
+    driver: local

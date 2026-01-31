@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Reservation Confirmed - Parking Reservation{% endblock %}
+
+{% block content %}
+<section class="reservation-success-section">
+    <div class="success-container">
+        <div class="success-header">
+            <h1>✅ Reservation Confirmed!</h1>
+            <p class="subtitle">Your parking slot has been successfully reserved</p>
+        </div>
+
+        <div class="reservation-details">
+            <h2>Reservation Details</h2>
+            
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <span class="label">Reservation ID:</span>
+                    <span class="value">#{{ summary.id }}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Email:</span>
+                    <span class="value">{{ summary.user_email }}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Slot Number:</span>
+                    <span class="value">{{ summary.slot_number }}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Reserved At:</span>
+                    <span class="value">{{ summary.reserved_at }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="qr-section">
+            <h2>Your QR Code</h2>
+            <p class="qr-description">Scan this code to access your reservation details</p>
+            <div class="qr-container">
+                <img src="{{ qr_image }}" alt="Reservation QR Code" class="qr-code">
+            </div>
+            <p class="qr-payload">QR contains: Reservation ID, Email, Slot Number, and Timestamp</p>
+        </div>
+
+        <div class="next-steps">
+            <h2>What's Next?</h2>
+            <ul>
+                <li>Save your QR code or take a screenshot</li>
+                <li>Present the QR code at the parking entrance</li>
+                <li>Your slot is reserved and ready for use</li>
+                <li>Check <a href="{{ url_for('reservations.my_reservations') }}">My Reservations</a> anytime</li>
+            </ul>
+        </div>
+
+        <div class="button-group">
+            <a href="{{ url_for('reservations.my_reservations') }}" class="btn btn-primary">View All Reservations</a>
+            <a href="{{ url_for('slots.list_slots') }}" class="btn btn-secondary">Browse More Slots</a>
+            <a href="{{ url_for('reservations.checkout_reservation', reservation_id=summary.id) }}" class="btn btn-danger">Checkout</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

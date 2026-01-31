@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Checkout Reservation - Parking Reservation{% endblock %}
+
+{% block content %}
+<section class="cancel-section">
+    <div class="cancel-container">
+        <div class="cancel-header">
+            <h1>⚠️ Checkout Reservation</h1>
+            <p class="subtitle">Are you sure you want to checkout this reservation?</p>
+        </div>
+
+        <div class="reservation-details">
+            <h2>Reservation Details</h2>
+            
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <span class="label">Reservation ID:</span>
+                    <span class="value">#{{ reservation.id }}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Parking Slot:</span>
+                    <span class="value">{{ reservation.slot.slot_number }}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Reserved At:</span>
+                    <span class="value">{{ reservation.reserved_at.strftime('%Y-%m-%d %H:%M:%S') }}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Email:</span>
+                    <span class="value">{{ reservation.user.email }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="warning-box">
+            <p><strong>⚠️ Warning:</strong> Once you checkout, this slot will become available for other users to reserve.</p>
+            <p>This action <strong>cannot be undone</strong>.</p>
+        </div>
+
+        <form method="POST" class="cancel-form">
+            <div class="button-group">
+                <button type="submit" class="btn btn-danger btn-large">Yes, Checkout</button>
+                <a href="{{ url_for('reservations.view_reservation', reservation_id=reservation.id) }}" class="btn btn-secondary btn-large">No, Keep Reservation</a>
+            </div>
+        </form>
+
+        <div class="info-box">
+            <h3>What happens when you checkout?</h3>
+            <ul>
+                <li>Your reservation will be permanently deleted</li>
+                <li>Slot {{ reservation.slot.slot_number }} will be available for other users</li>
+                <li>You can make a new reservation at any time</li>
+                <li>The QR code will no longer be valid</li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

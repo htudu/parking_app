@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}My Reservations - Parking Reservation{% endblock %}
+
+{% block content %}
+<section class="reservations-section">
+    <h1>📋 My Reservations</h1>
+
+    {% if reservations %}
+        <div class="reservations-list">
+            {% for res in reservations %}
+                <div class="reservation-item">
+                    <div class="res-header">
+                        <h3>Slot {{ res.slot_number }} - Reservation #{{ res.id }}</h3>
+                        <span class="res-date">{{ res.reserved_at }}</span>
+                    </div>
+                    <div class="res-body">
+                        <p><strong>Email:</strong> {{ res.user_email }}</p>
+                        <p><strong>Slot Number:</strong> {{ res.slot_number }}</p>
+                        <p><strong>Reserved At:</strong> {{ res.reserved_at }}</p>
+                    </div>
+                    <div class="res-action">
+                        <a href="{{ url_for('reservations.view_reservation', reservation_id=res.id) }}" class="btn btn-small btn-primary">
+                            View Details & QR
+                        </a>
+                        <a href="{{ url_for('reservations.checkout_reservation', reservation_id=res.id) }}" class="btn btn-small btn-danger">
+                            Checkout
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="no-data-container">
+            <p class="no-data">You don't have any reservations yet.</p>
+            <a href="{{ url_for('slots.list_slots') }}" class="btn btn-primary">Make Your First Reservation</a>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Available Parking Slots - Parking Reservation{% endblock %}
+
+{% block content %}
+<section class="slots-section">
+    <h1>🅿️ Available Parking Slots</h1>
+    
+    {% if current_user.is_authenticated %}
+        <p class="info-text">Select a slot to reserve it now</p>
+    {% else %}
+        <p class="info-text">
+            <a href="{{ url_for('auth.login') }}">Login</a> to reserve a slot
+        </p>
+    {% endif %}
+
+    <div class="slots-container">
+        {% if slots %}
+            {% for slot in slots %}
+                <div class="slot-card {% if slot.is_available %}available{% else %}unavailable{% endif %}">
+                    <div class="slot-number">{{ slot.slot_number }}</div>
+                    <div class="slot-status">
+                        {% if slot.is_available %}
+                            <span class="badge badge-available">Available</span>
+                            {% if current_user.is_authenticated %}
+                                <a href="{{ url_for('reservations.create_reservation', slot_id=slot.id) }}" class="btn btn-small btn-reserve">
+                                    Reserve Now
+                                </a>
+                            {% endif %}
+                        {% else %}
+                            <span class="badge badge-unavailable">Reserved</span>
+                            {% if current_user.is_authenticated %}
+                                {% set user_reservation = slot.reservations|selectattr('user_id', 'equalto', current_user.id)|first %}
+                                {% if user_reservation %}
+                                    <a href="{{ url_for('reservations.checkout_reservation', reservation_id=user_reservation.id) }}" class="btn btn-small btn-danger">
+                                        Checkout
+                                    </a>
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-data">No slots available at the moment.</p>
+        {% endif %}
+    </div>
+
+    <div class="slots-summary">
+        <h3>Summary</h3>
+        <p>Total Slots: <strong>{{ slots|length }}</strong></p>
+        <p>Available: <strong class="text-available">{{ slots|selectattr('is_available', 'true')|list|length }}</strong></p>
+        <p>Reserved: <strong class="text-reserved">{{ slots|selectattr('is_available', 'false')|list|length }}</strong></p>
+    </div>
+</section>
+{% endblock %}

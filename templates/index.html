@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Parking Reservation{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Welcome to Parking Reservation</h1>
+    <p>Simple, fast, and reliable parking slot reservations</p>
+    
+    {% if not current_user.is_authenticated %}
+        <div class="button-group">
+            <a href="{{ url_for('auth.login') }}" class="btn btn-primary">Login</a>
+            <a href="{{ url_for('auth.register') }}" class="btn btn-secondary">Register</a>
+        </div>
+    {% else %}
+        <div class="button-group">
+            <a href="{{ url_for('slots.list_slots') }}" class="btn btn-primary">Browse Slots</a>
+            <a href="{{ url_for('reservations.my_reservations') }}" class="btn btn-secondary">My Reservations</a>
+        </div>
+    {% endif %}
+</section>
+
+<section class="features">
+    <h2>Features</h2>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>📍 Easy Booking</h3>
+            <p>Reserve parking slots in just one click. Real-time availability updates.</p>
+        </div>
+        <div class="feature-card">
+            <h3>🔐 Secure</h3>
+            <p>Your account is protected with industry-standard password hashing.</p>
+        </div>
+        <div class="feature-card">
+            <h3>📱 QR Codes</h3>
+            <p>Get instant QR codes for your reservations. Share or scan anytime.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

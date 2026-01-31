@@ -1,0 +1,276 @@
+# ==================== PYTHON ====================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# ==================== FLUTTER ====================
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+mobile_app/flutter_starter/doc/api/
+mobile_app/flutter_starter/ios/Flutter/.last_build_id
+mobile_app/flutter_starter/.dart_tool/
+mobile_app/flutter_starter/.flutter-plugins
+mobile_app/flutter_starter/.flutter-plugins-dependencies
+mobile_app/flutter_starter/.packages
+mobile_app/flutter_starter/.pub-cache/
+mobile_app/flutter_starter/.pub/
+mobile_app/flutter_starter/build/
+
+# Symbolication related
+mobile_app/flutter_starter/app.*.symbols
+
+# Obfuscation related
+mobile_app/flutter_starter/app.*.map.json
+
+# iOS/macOS
+mobile_app/flutter_starter/ios/**/*.mode1v3
+mobile_app/flutter_starter/ios/**/*.mode2v3
+mobile_app/flutter_starter/ios/**/*.moved-aside
+mobile_app/flutter_starter/ios/**/*.pbxuser
+mobile_app/flutter_starter/ios/**/*.perspectivev3
+mobile_app/flutter_starter/ios/**/*sync/
+mobile_app/flutter_starter/ios/**/.sconsign.dblite
+mobile_app/flutter_starter/ios/**/.tags*
+mobile_app/flutter_starter/ios/**/.vagrant/
+mobile_app/flutter_starter/ios/**/DerivedData/
+mobile_app/flutter_starter/ios/**/Icon?
+mobile_app/flutter_starter/ios/**/Icon??
+mobile_app/flutter_starter/ios/**/Icon???
+mobile_app/flutter_starter/ios/**/Icon????
+mobile_app/flutter_starter/ios/**/Icon?????
+mobile_app/flutter_starter/ios/**/Icon???.png
+mobile_app/flutter_starter/ios/**/Icon????.png
+mobile_app/flutter_starter/ios/**/Icon?????.png
+mobile_app/flutter_starter/ios/**/Pods/
+mobile_app/flutter_starter/ios/**/.symlinks/
+mobile_app/flutter_starter/ios/**/*.xcframework
+mobile_app/flutter_starter/ios/**/.generated.xcconfig
+mobile_app/flutter_starter/ios/**/Flutter/Flutter.framework
+mobile_app/flutter_starter/ios/**/Flutter/Flutter.podspec
+mobile_app/flutter_starter/ios/**/Flutter/Generated.xcconfig
+mobile_app/flutter_starter/ios/**/Flutter/ephemeral/
+mobile_app/flutter_starter/ios/**/Flutter/app.flx
+mobile_app/flutter_starter/ios/**/Flutter/app.zip
+mobile_app/flutter_starter/ios/**/Flutter/flutter_assets/
+mobile_app/flutter_starter/ios/**/Flutter/flutter_export_environment.sh
+mobile_app/flutter_starter/ios/**/ServiceDefinitions.json
+mobile_app/flutter_starter/ios/**/Runner/GeneratedPluginRegistrant.*
+
+# Exceptions to above rules.
+!mobile_app/flutter_starter/ios/**/!default.mode1v3
+!mobile_app/flutter_starter/ios/**/!default.mode2v3
+!mobile_app/flutter_starter/ios/**/!default.pbxuser
+!mobile_app/flutter_starter/ios/**/!default.perspectivev3
+!mobile_app/flutter_starter/ios/**/!default.xcconfig
+!mobile_app/flutter_starter/ios/**/!Podfile
+!mobile_app/flutter_starter/ios/**/!Podfile.lock
+
+# Android/Gradle
+mobile_app/flutter_starter/android/**/gradle-wrapper.jar
+mobile_app/flutter_starter/android/.gradle
+mobile_app/flutter_starter/android/captures/
+mobile_app/flutter_starter/android/gradlew
+mobile_app/flutter_starter/android/gradlew.bat
+mobile_app/flutter_starter/android/local.properties
+mobile_app/flutter_starter/android/**/GeneratedPluginRegistrant.java
+
+# Web
+mobile_app/flutter_starter/lib/generated_plugin_registrant.dart
+
+# Windows
+mobile_app/flutter_starter/windows/flutter/generated_plugin_registrant.cc
+mobile_app/flutter_starter/windows/flutter/generated_plugin_registrant.h
+mobile_app/flutter_starter/windows/flutter/generated_plugins.cmake
+
+# Linux
+mobile_app/flutter_starter/linux/flutter/generated_plugin_registrant.cc
+mobile_app/flutter_starter/linux/flutter/generated_plugin_registrant.h
+mobile_app/flutter_starter/linux/flutter/generated_plugins.cmake
+
+# macOS
+mobile_app/flutter_starter/macos/Flutter/GeneratedPluginRegistrant.swift
+
+# ==================== IDE ====================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ==================== OS ====================
+.DS_Store
+Thumbs.db
+
+# ==================== BUILD & ARTIFACTS ====================
+build/
+dist/
+*.egg-info/
+*.pyc
+instance/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ==================== PROJECT SPECIFIC ====================
+# Flask
+instance/
+.webassets-cache
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
